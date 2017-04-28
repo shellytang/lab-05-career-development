@@ -36,19 +36,22 @@ List.prototype.pop = function() {
 //O(n)
 List.prototype.forEach = function(callback) {
   for(let i = 0; i < this.length; i++) {
-    callback(this[i], i, this);  //for each iterates and runs a function but does not return (returns undefined)
+    callback(this[i], i, this);  //for each iterates and runs a function but does not return
   }
 };
 
 //O(n)
 List.prototype.map = function(callback) {
+  let testArr = [];
+  // console.log('did we get here??');
   for(let i = 0; i < this.length; i++) {
-    callback(this[i], i, this);
+    console.log('what is this: ', typeof callback);
+    testArr.push(callback(this[i], i, this));
   }
-  return this;  //map is a collection of items that returns a new array
+  return testArr;  //map is a collection of items that returns a new array
 };
 
-//O^2
+// O^2
 List.prototype.reduce = function(callback) {
   for(let i = 0; i < this.length; i ++) {
     for(let j =0; j < this.length; j++) {

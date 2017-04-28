@@ -8,10 +8,15 @@ let list = new List();
 
 // myArr = list.push(2);
 // console.log(myArr);
+let myArr = list.push(1);
+console.log('myArr: ', myArr);
 
-let myCB = function(x) {
-  return x + 1;
-};
+// let myCB = function(a) {
+//   return a + 1;
+// };
 
-let myArr = list.map(myCB(1));
-console.log(myArr);
+let testArr = myArr.map(function(a) {
+  console.log('what is a: ', a);
+  return a + 1;
+});
+console.log('my new testArr: ', testArr);

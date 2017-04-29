@@ -43,33 +43,40 @@ List.prototype.forEach = function(callback) {
 //O(n)
 List.prototype.map = function(callback) {
   let testMapArr = [];
-  // console.log('did we get here??');
   for(let i = 0; i < this.length; i++) {
-    // console.log('what is this: ', typeof callback);
     testMapArr.push(callback(this[i], i, this));
   }
-  return testMapArr;  //map is a collection of items that returns a new array
+  return testMapArr;
 };
 
 // O(n)
 List.prototype.filter = function(callback) {
   let testFilterArr = [];
   for(let i = 0; i < this.length; i++) {
-    testFilterArr.push(callback(this[i], i, this));
-  }
+    if(callback(this[i], i, this)) {
+      testFilterArr.push(this[i]);
+    };
+  };
   return testFilterArr;
 };
 
-//O^2
+//O(n)
 List.prototype.reduce = function(callback) {
+  let testReduceArr = [];
   for(let i = 0; i < this.length; i ++) {
-    for(let j =0; j < this.length; j++) {
-      callback(this[j], this[i]); //accumlator and current value
-    }
-  }
+
+  });
   return this;
 };
 
+let list = new List(1,2,3,4);
+let myNewArr = list.reduce(function(acc, val) {
+  return acc + val;
+}, 0);
+// sum is 6
+//acc this[j], val is this[i]
+
+console.log(myNewArr);
 
 // # Whiteboard Exercise (Groups of 4)
 // * Implement `forEach()` as a method of your List Data Structure

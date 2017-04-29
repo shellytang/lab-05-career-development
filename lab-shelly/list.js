@@ -60,23 +60,15 @@ List.prototype.filter = function(callback) {
   return testFilterArr;
 };
 
-//O(n)
+// O(n)
 List.prototype.reduce = function(callback) {
-  let testReduceArr = [];
-  for(let i = 0; i < this.length; i ++) {
-
-  });
-  return this;
+  let result = 0;
+  for (let i = 0; i < this.length; i++) {
+    result += this[i];
+    callback(this[i], i, this);
+  };
+  return result;
 };
-
-let list = new List(1,2,3,4);
-let myNewArr = list.reduce(function(acc, val) {
-  return acc + val;
-}, 0);
-// sum is 6
-//acc this[j], val is this[i]
-
-console.log(myNewArr);
 
 // # Whiteboard Exercise (Groups of 4)
 // * Implement `forEach()` as a method of your List Data Structure

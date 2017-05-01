@@ -55,8 +55,8 @@ List.prototype.filter = function(callback) {
   for(let i = 0; i < this.length; i++) {
     if(callback(this[i], i, this)) {
       testFilterArr.push(this[i]);
-    };
-  };
+    }
+  }
   return testFilterArr;
 };
 
@@ -66,7 +66,7 @@ List.prototype.reduce = function(callback) {
   for (let i = 0; i < this.length; i++) {
     result += this[i];
     callback(this[i], i, this);
-  };
+  }
   return result;
 };
 
